@@ -1,4 +1,3 @@
-
 import arcade
 import os
 
@@ -21,7 +20,7 @@ JUMP_SPEED = 14
 GRAVITY = 0.6
 
 
-class MyGame(arcade.Window):
+class platformer_game(arcade.Window):
     """ Main application class. """
 
     def __init__(self):
@@ -100,20 +99,21 @@ class MyGame(arcade.Window):
         draw_coin(SPRITE_SIZE * 12.5, 290)
 
 
-        # Draw the crates    
+        # create the function to draw the crates  
         def draw_crate(bottom, left):
             wall = arcade.Sprite(":resources:images/tiles/boxCrate_double.png", SPRITE_SCALING)
             wall.bottom = bottom
             wall.left = left
             self.wall_list.append(wall)
 
+        # Positioning of the crates
         for x in range(0, SCREEN_WIDTH, SPRITE_SIZE * 5):
             draw_crate((SPRITE_SIZE), x)
         draw_crate((SPRITE_SIZE * 5), 325)
         draw_crate((SPRITE_SIZE * 8), 600)
 
 
-        # -- Draw enemies on the ground
+        # Create the draw enemy function
         def draw_enemy(bottom, left, velocity, bound_left, bound_right):
             enemy = arcade.Sprite(":resources:images/enemies/wormGreen.png", SPRITE_SCALING)
 
@@ -125,6 +125,7 @@ class MyGame(arcade.Window):
             enemy.change_x = velocity
             self.enemy_list.append(enemy)
 
+        # positioning of the enemies
         draw_enemy((SPRITE_SIZE),(SPRITE_SIZE * 7), (2), (SPRITE_SIZE * 3), (SPRITE_SIZE * 10))
         draw_enemy((SPRITE_SIZE), (SPRITE_SIZE), 2, (SPRITE_SIZE), (SPRITE_SIZE * 10))
         draw_enemy((SPRITE_SIZE * 4), (SPRITE_SIZE * 4), (3), (SPRITE_SIZE * 3), (SPRITE_SIZE *8))
@@ -133,7 +134,7 @@ class MyGame(arcade.Window):
         draw_enemy((SPRITE_SIZE * 10),(SPRITE_SIZE * 4), (5), (SPRITE_SIZE * 2), (SPRITE_SIZE * 7))
 
 
-        # -- Set up the player
+        # Set up the player
         self.player_sprite = arcade.Sprite(":resources:images/animated_characters/female_person/femalePerson_idle.png",
                                            SPRITE_SCALING)
         self.player_list.append(self.player_sprite)
@@ -236,7 +237,7 @@ class MyGame(arcade.Window):
 
 
 def main():
-    window = MyGame()
+    window = platformer_game()
     window.setup()
     arcade.run()
 
