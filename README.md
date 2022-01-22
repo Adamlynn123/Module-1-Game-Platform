@@ -4,7 +4,7 @@ In this game, the goal is to grab all the coins without touching the enemy worms
 
 The purpose of this game is to learn how to code a platformer game and further my knowledge of coding with Python.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/7J4Fk31wDVk)
 
 # Development Environment
 
